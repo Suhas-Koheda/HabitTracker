@@ -2,6 +2,7 @@ package dev.haas
 
 import configureDatabase
 import dev.haas.routes.configureAuthRouting
+import dev.haas.routes.configureHabitRoutes
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -14,5 +15,6 @@ fun Application.module() {
     configureDatabase()
     configureHTTP()
     configureSecurity()
+    configureHabitRoutes()
     configureAuthRouting()
 }

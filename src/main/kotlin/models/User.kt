@@ -8,11 +8,13 @@ object Users : Table("users") {
     val name = varchar("name", 255)
     val email = varchar("email", 255).uniqueIndex()
     val password = varchar("password", 255)
+    val jwt=varchar("jwt", 255).default("")
+    val fieryDays= integer("fiery_days").default(0)
     override val primaryKey = PrimaryKey(userId)
 }
-
-data class UserDetailsRequest(val userId: String,val habitsList: List<HabitResponse>)
 @Serializable
 data class UserRegisterRequest(val name: String, val email: String, val password: String)
 @Serializable
 data class UserLoginRequest(val email: String, val password: String)
+@Serializable
+data class UserRequest(val email: String, val jwt: String)
